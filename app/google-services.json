@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "230558648618",
+    "project_id": "my-deepseek-app",
+    "storage_bucket": "my-deepseek-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:230558648618:android:7d48c4cd4198cd8dd9f653",
+        "android_client_info": {
+          "package_name": "me.rerere.rikkahub"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJ0B8gkOokvTbK5E6FSd0X0eowJJNU7X4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

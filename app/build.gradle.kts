@@ -69,35 +69,40 @@ android {
             }
         }
     }
-
     buildTypes {
-        release {
-            signingConfig = signingConfigs.getByName("release")
-            isMinifyEnabled = true
-            isShrinkResources = true
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-            buildConfigField("String", "VERSION_NAME", "\"${android.defaultConfig.versionName}\"")
-            buildConfigField("String", "VERSION_CODE", "\"${android.defaultConfig.versionCode}\"")
-        }
         debug {
-            applicationIdSuffix = ".debug"
-            buildConfigField("String", "VERSION_NAME", "\"${android.defaultConfig.versionName}\"")
-            buildConfigField("String", "VERSION_CODE", "\"${android.defaultConfig.versionCode}\"")
-        }
-        create("baseline") {
-            initWith(getByName("release"))
-            matchingFallbacks.add("release")
-            signingConfig = signingConfigs.getByName("debug")
-            applicationIdSuffix = ".debug"
-            isDebuggable = false
-            isMinifyEnabled = false
-            isShrinkResources = false
-            isProfileable = true
+            // 添加这行来禁用 Google Services 处理
+            manifestPlaceholders["googleServicesEnabled"] = "false"
         }
     }
+//    buildTypes {
+//        release {
+//            signingConfig = signingConfigs.getByName("release")
+//            isMinifyEnabled = true
+//            isShrinkResources = true
+//            proguardFiles(
+//                getDefaultProguardFile("proguard-android-optimize.txt"),
+//                "proguard-rules.pro"
+//            )
+//            buildConfigField("String", "VERSION_NAME", "\"${android.defaultConfig.versionName}\"")
+//            buildConfigField("String", "VERSION_CODE", "\"${android.defaultConfig.versionCode}\"")
+//        }
+//        debug {
+//            applicationIdSuffix = ".debug"
+//            buildConfigField("String", "VERSION_NAME", "\"${android.defaultConfig.versionName}\"")
+//            buildConfigField("String", "VERSION_CODE", "\"${android.defaultConfig.versionCode}\"")
+//        }
+//        create("baseline") {
+//            initWith(getByName("release"))
+//            matchingFallbacks.add("release")
+//            signingConfig = signingConfigs.getByName("debug")
+//            applicationIdSuffix = ".debug"
+//            isDebuggable = false
+//            isMinifyEnabled = false
+//            isShrinkResources = false
+//            isProfileable = true
+//        }
+//    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
